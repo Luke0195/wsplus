@@ -1,18 +1,21 @@
 import React from 'react'
-import { SafeAreaView, StyleSheet, Text, View } from 'react-native'
+import { StatusBar, View } from 'react-native'
+import { ThemeProvider } from 'styled-components/native'
+import { theme } from '../../assets/themes'
+import * as S from './styles'
 
-export function App(): JSX.Element {
+export function App(): React.ReactNode {
   return (
-    <SafeAreaView>
-      <View>
-        <Text style={styles.text}> Hello World</Text>
-      </View>
-    </SafeAreaView>
+    <ThemeProvider theme={theme.dark}>
+      <S.Container>
+        <StatusBar
+          barStyle={'light-content'}
+          backgroundColor={theme.dark.colors.primaryColor}
+        />
+        <View>
+          <S.Title> Hello World</S.Title>
+        </View>
+      </S.Container>
+    </ThemeProvider>
   )
 }
-
-const styles = StyleSheet.create({
-  text: {
-    fontFamily: 'Quicksand-Bold',
-  },
-})

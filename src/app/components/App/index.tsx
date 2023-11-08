@@ -1,7 +1,8 @@
 import React from 'react'
-import { StatusBar, View } from 'react-native'
+import { StatusBar } from 'react-native'
 import { ThemeProvider } from 'styled-components/native'
-import { theme } from '../../assets/themes'
+import { theme } from '../../assets/themes/index'
+import { Authentication } from '../../screens/Authentication/index'
 import * as S from './styles'
 
 export function App(): React.ReactNode {
@@ -12,9 +13,7 @@ export function App(): React.ReactNode {
           barStyle={'light-content'}
           backgroundColor={theme.dark.colors.primaryColor}
         />
-        <View>
-          <S.Title> Hello World</S.Title>
-        </View>
+        <Authentication />
       </S.Container>
     </ThemeProvider>
   )
